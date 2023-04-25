@@ -1,0 +1,5 @@
+/* импортируем  normalize.css из папки node_modules
+т.к. этот файл указан в файле package.json, то длинный путь писать не надо
+webpack сам все понимает*/
+/* @import 'normalize.css'; */
+@import '../../node_modules/normalize.css/normalize.css';
