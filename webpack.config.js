@@ -43,6 +43,19 @@ module.exports = {
       './src/6_5_dailyCalculatorPage/dailyCalculatorLeapYear.js',
     // 6_6_factsAboutCatsPage
     factsAboutCats: './src/6_6_factsAboutCatsPage/factsAboutCats.js',
+    // 6_7_electricityCalculatorPage
+    electricityCalculator:
+      './src/6_7_electricityCalculatorPage/electricityCalculator.js',
+    // 6_8_waterCalculatorPage
+    waterCalculator: './src/6_8_waterCalculatorPage/waterCalculator.js',
+    // 6_9_dailyTodoListPage
+    dailyTodoList: './src/6_9_dailyTodoListPage/dailyTodoList.js',
+    // 6_10_passwordGeneratorPage
+    passwordGenerator: './src/6_10_passwordGeneratorPage/passwordGenerator.js',
+    // 6_11_notepadPage
+    notepad: './src/6_11_notepadPage/notepad.js',
+    // 6_12_informationIpPage
+    informationIp: './src/6_12_informationIpPage/informationIp.js',
   },
   // в параметре (output), указываем куда нам следует складывать результат
   output: {
@@ -142,6 +155,43 @@ module.exports = {
       template: './src/6_6_factsAboutCatsPage/factsAboutCats.html',
       // Скрипты, которые нужно подключить к странице
       chunks: ['normalizeScript', 'bootstrapScript', 'factsAboutCats'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'electricityCalculator.html',
+      template:
+        './src/6_7_electricityCalculatorPage/electricityCalculator.html',
+      // Скрипты, которые нужно подключить к странице
+      chunks: ['normalizeScript', 'bootstrapScript', 'electricityCalculator'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'waterCalculator.html',
+      template: './src/6_8_waterCalculatorPage/waterCalculator.html',
+      // Скрипты, которые нужно подключить к странице
+      chunks: ['normalizeScript', 'bootstrapScript', 'waterCalculator'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'dailyTodoList.html',
+      template: './src/6_9_dailyTodoListPage/dailyTodoList.html',
+      // Скрипты, которые нужно подключить к странице
+      chunks: ['normalizeScript', 'bootstrapScript', 'dailyTodoList'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'passwordGenerator.html',
+      template: './src/6_10_passwordGeneratorPage/passwordGenerator.html',
+      // Скрипты, которые нужно подключить к странице
+      chunks: ['normalizeScript', 'bootstrapScript', 'passwordGenerator'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'notepad.html',
+      template: './src/6_11_notepadPage/notepad.html',
+      // Скрипты, которые нужно подключить к странице
+      chunks: ['normalizeScript', 'bootstrapScript', 'notepad'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'informationIp.html',
+      template: './src/6_12_informationIpPage/informationIp.html',
+      // Скрипты, которые нужно подключить к странице
+      chunks: ['normalizeScript', 'bootstrapScript', 'informationIp'],
     }),
     // подключаем MiniCssExtractPlugin
     new MiniCssExtractPlugin({
