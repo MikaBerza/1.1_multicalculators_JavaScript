@@ -26,6 +26,23 @@ module.exports = {
     mainSpeedClickSection: './src/6_0_mainPage/mainSpeedClickSection.js',
     // 6_1_borschPage
     borsch: './src/6_1_borschPage/borsch.js',
+    // 6_2_pancakesPage
+    pancakes: './src/6_2_pancakesPage/pancakes.js',
+    // 6_3_pilafPage
+    pilaf: './src/6_3_pilafPage/pilaf.js',
+    // 6_4_mortgageCalculatorPage
+    mortgageCalculator:
+      './src/6_4_mortgageCalculatorPage/mortgageCalculator.js',
+    // 6_5_dailyCalculatorPage
+    dailyCalculator: './src/6_5_dailyCalculatorPage/dailyCalculator.js',
+    dailyCalculatorFromDateToDate:
+      './src/6_5_dailyCalculatorPage/dailyCalculatorFromDateToDate.js',
+    dailyCalculatorFromTheCurrentDay:
+      './src/6_5_dailyCalculatorPage/dailyCalculatorFromTheCurrentDay.js',
+    dailyCalculatorLeapYear:
+      './src/6_5_dailyCalculatorPage/dailyCalculatorLeapYear.js',
+    // 6_6_factsAboutCatsPage
+    factsAboutCats: './src/6_6_factsAboutCatsPage/factsAboutCats.js',
   },
   // в параметре (output), указываем куда нам следует складывать результат
   output: {
@@ -78,6 +95,53 @@ module.exports = {
         'borsch',
         'borschPancakesPilafScript',
       ],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'pancakes.html',
+      template: './src/6_2_pancakesPage/pancakes.html',
+      // Скрипты, которые нужно подключить к странице
+      chunks: [
+        'normalizeScript',
+        'bootstrapScript',
+        'pancakes',
+        'borschPancakesPilafScript',
+      ],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'pilaf.html',
+      template: './src/6_3_pilafPage/pilaf.html',
+      // Скрипты, которые нужно подключить к странице
+      chunks: [
+        'normalizeScript',
+        'bootstrapScript',
+        'pilaf',
+        'borschPancakesPilafScript',
+      ],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'mortgageCalculator.html',
+      template: './src/6_4_mortgageCalculatorPage/mortgageCalculator.html',
+      // Скрипты, которые нужно подключить к странице
+      chunks: ['normalizeScript', 'bootstrapScript', 'mortgageCalculator'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'dailyCalculator.html',
+      template: './src/6_5_dailyCalculatorPage/dailyCalculator.html',
+      // Скрипты, которые нужно подключить к странице
+      chunks: [
+        'normalizeScript',
+        'bootstrapScript',
+        'dailyCalculator',
+        'dailyCalculatorFromDateToDate',
+        'dailyCalculatorFromTheCurrentDay',
+        'dailyCalculatorLeapYear',
+      ],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'factsAboutCats.html',
+      template: './src/6_6_factsAboutCatsPage/factsAboutCats.html',
+      // Скрипты, которые нужно подключить к странице
+      chunks: ['normalizeScript', 'bootstrapScript', 'factsAboutCats'],
     }),
     // подключаем MiniCssExtractPlugin
     new MiniCssExtractPlugin({
