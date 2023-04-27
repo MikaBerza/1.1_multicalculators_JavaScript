@@ -6,27 +6,27 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-/******/ (() => { // webpackBootstrap
+/******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
-
-/***/ "./src/6_0_mainPage/imgMain/3_section/viking_animation sync recursive \\.png$/":
-/*!***************************************************************************!*\
-  !*** ./src/6_0_mainPage/imgMain/3_section/viking_animation/ sync \.png$/ ***!
-  \***************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-eval("var map = {\n\t\"./1.17viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.17viking.png\",\n\t\"./1.18viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.18viking.png\",\n\t\"./1.19viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.19viking.png\",\n\t\"./1.20viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.20viking.png\",\n\t\"./1.21viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.21viking.png\",\n\t\"./1.22viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.22viking.png\",\n\t\"./1.23viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.23viking.png\",\n\t\"./1.24viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.24viking.png\",\n\t\"./1.25viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.25viking.png\",\n\t\"./1.26viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.26viking.png\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/6_0_mainPage/imgMain/3_section/viking_animation sync recursive \\\\.png$/\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/viking_animation/_sync_\\.png$/?");
-
-/***/ }),
 
 /***/ "./src/6_0_mainPage/mainAnimationSection.js":
 /*!**************************************************!*\
   !*** ./src/6_0_mainPage/mainAnimationSection.js ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _6_0_mainPage_imgMain_3_section_button_animation_1_27iconsStart_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../6_0_mainPage/imgMain/3_section/button_animation/1.27iconsStart.png */ \"./src/6_0_mainPage/imgMain/3_section/button_animation/1.27iconsStart.png\");\n/* harmony import */ var _6_0_mainPage_imgMain_3_section_button_animation_1_28iconsStop_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../6_0_mainPage/imgMain/3_section/button_animation/1.28iconsStop.png */ \"./src/6_0_mainPage/imgMain/3_section/button_animation/1.28iconsStop.png\");\n/*активация строго режима*/\r\n\r\n// импортируем картинки (3_section)\r\n\r\n\r\n\r\n/*<!-----SectionThree--------------------------------------------------------------------------->*/\r\n/*---------Анимация из картинок----------------------------------------------------*/\r\n// Получаем доступ к нужному нам элементу\r\nconst elemImg = document.getElementById('imgSectionThree');\r\nconst elemBtnStart = document.getElementById('btnSectionThreeStart');\r\nconst elemBtnStop = document.getElementById('btnSectionThreeStop');\r\n\r\n// Формируем массив ссылок на картинки (для анимации)\r\nconst imgArr = [];\r\n\r\nfunction importAll(r) {\r\n  r.keys().forEach((key) => imgArr.push(r(key)));\r\n}\r\nimportAll(\r\n  __webpack_require__(\"./src/6_0_mainPage/imgMain/3_section/viking_animation sync recursive \\\\.png$/\")\r\n);\r\n\r\n/* \r\nИнициализируем переменную (timer) как глобальную\r\nчтобы в ней между запусками функции (start, stop)\r\nхранилось значение\r\n*/\r\nlet timer;\r\n// инициализируем счетчик который будет отвечать за картинки\r\nlet counterImg = 0;\r\n\r\n// Функция для запуска анимации\r\nfunction startAnimation() {\r\n  timer = setInterval(function () {\r\n    // Прибавляем к счетчику +1\r\n    ++counterImg;\r\n    // по очереди из массива добавляем картинки\r\n    elemImg.setAttribute('src', imgArr[counterImg]);\r\n    if (counterImg > 0 && counterImg < 10) {\r\n      // Ставим блок формы (кнопки)\r\n      elemBtnStart.disabled = true;\r\n    } else if (counterImg === 10) {\r\n      // Проверяю что counterImg === 10\r\n      console.log('Десять');\r\n      // Выстовляю стартовую картинку\r\n      elemImg.setAttribute('src', imgArr[0]);\r\n      // Останавливаю таймер\r\n      clearInterval(timer);\r\n      // Сбрасываю счетчик на 0\r\n      counterImg = 0;\r\n      // Удаляю блок формы (кнопки)\r\n      elemBtnStart.removeAttribute('disabled');\r\n    }\r\n  }, 300);\r\n}\r\n\r\n// Функция для остановки анимации\r\nfunction stopAnimation() {\r\n  // clearInterval останавливаем таймер\r\n  clearInterval(timer);\r\n  // Удаляю блок формы (кнопки)\r\n  elemBtnStart.removeAttribute('disabled');\r\n}\r\n\r\n/*\r\nМетод addEventListener - добавляет обработчик события к указанному элементу и \r\nзапустить выполнение программы при совершении заданного действия\r\n*/\r\nelemBtnStart.addEventListener('dblclick', startAnimation);\r\nelemBtnStop.addEventListener('click', stopAnimation);\r\n\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/mainAnimationSection.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _6_0_mainPage_imgMain_3_section_button_animation_1_27iconsStart_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../6_0_mainPage/imgMain/3_section/button_animation/1.27iconsStart.png */ \"./src/6_0_mainPage/imgMain/3_section/button_animation/1.27iconsStart.png\");\n/* harmony import */ var _6_0_mainPage_imgMain_3_section_button_animation_1_28iconsStop_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../6_0_mainPage/imgMain/3_section/button_animation/1.28iconsStop.png */ \"./src/6_0_mainPage/imgMain/3_section/button_animation/1.28iconsStop.png\");\n/*активация строго режима*/\n\n\n// импортируем картинки (3_section)\n\n\n\n/*<!-----SectionThree--------------------------------------------------------------------------->*/\n/*---------Анимация из картинок----------------------------------------------------*/\n// Получаем доступ к нужному нам элементу\nconst elemImg = document.getElementById('imgSectionThree');\nconst elemBtnStart = document.getElementById('btnSectionThreeStart');\nconst elemBtnStop = document.getElementById('btnSectionThreeStop');\n\n// Формируем массив ссылок на картинки (для анимации)\nconst imgArr = [];\nfunction importAll(r) {\n  r.keys().forEach(key => imgArr.push(r(key)));\n}\nimportAll(__webpack_require__(\"./src/6_0_mainPage/imgMain/3_section/viking_animation sync recursive \\\\.png$/\"));\n\n/* \r\nИнициализируем переменную (timer) как глобальную\r\nчтобы в ней между запусками функции (start, stop)\r\nхранилось значение\r\n*/\nlet timer;\n// инициализируем счетчик который будет отвечать за картинки\nlet counterImg = 0;\n\n// Функция для запуска анимации\nfunction startAnimation() {\n  timer = setInterval(function () {\n    // Прибавляем к счетчику +1\n    ++counterImg;\n    // по очереди из массива добавляем картинки\n    elemImg.setAttribute('src', imgArr[counterImg]);\n    if (counterImg > 0 && counterImg < 10) {\n      // Ставим блок формы (кнопки)\n      elemBtnStart.disabled = true;\n    } else if (counterImg === 10) {\n      // Проверяю что counterImg === 10\n      console.log('Десять');\n      // Выстовляю стартовую картинку\n      elemImg.setAttribute('src', imgArr[0]);\n      // Останавливаю таймер\n      clearInterval(timer);\n      // Сбрасываю счетчик на 0\n      counterImg = 0;\n      // Удаляю блок формы (кнопки)\n      elemBtnStart.removeAttribute('disabled');\n    }\n  }, 300);\n}\n\n// Функция для остановки анимации\nfunction stopAnimation() {\n  // clearInterval останавливаем таймер\n  clearInterval(timer);\n  // Удаляю блок формы (кнопки)\n  elemBtnStart.removeAttribute('disabled');\n}\n\n/*\r\nМетод addEventListener - добавляет обработчик события к указанному элементу и \r\nзапустить выполнение программы при совершении заданного действия\r\n*/\nelemBtnStart.addEventListener('dblclick', startAnimation);\nelemBtnStop.addEventListener('click', stopAnimation);\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/mainAnimationSection.js?");
+
+/***/ }),
+
+/***/ "./src/6_0_mainPage/imgMain/3_section/viking_animation sync recursive \\.png$/":
+/*!***************************************************************************!*\
+  !*** ./src/6_0_mainPage/imgMain/3_section/viking_animation/ sync \.png$/ ***!
+  \***************************************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval("var map = {\n\t\"./1.17viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.17viking.png\",\n\t\"./1.18viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.18viking.png\",\n\t\"./1.19viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.19viking.png\",\n\t\"./1.20viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.20viking.png\",\n\t\"./1.21viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.21viking.png\",\n\t\"./1.22viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.22viking.png\",\n\t\"./1.23viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.23viking.png\",\n\t\"./1.24viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.24viking.png\",\n\t\"./1.25viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.25viking.png\",\n\t\"./1.26viking.png\": \"./src/6_0_mainPage/imgMain/3_section/viking_animation/1.26viking.png\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/6_0_mainPage/imgMain/3_section/viking_animation sync recursive \\\\.png$/\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/viking_animation/_sync_\\.png$/?");
 
 /***/ }),
 
@@ -34,7 +34,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _6_0
 /*!********************************************************************************!*\
   !*** ./src/6_0_mainPage/imgMain/3_section/button_animation/1.27iconsStart.png ***!
   \********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 eval("module.exports = __webpack_require__.p + \"images/1.27iconsStart.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/button_animation/1.27iconsStart.png?");
@@ -45,7 +45,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.27iconsStart.png\";\n\
 /*!*******************************************************************************!*\
   !*** ./src/6_0_mainPage/imgMain/3_section/button_animation/1.28iconsStop.png ***!
   \*******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 eval("module.exports = __webpack_require__.p + \"images/1.28iconsStop.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/button_animation/1.28iconsStop.png?");
@@ -56,7 +56,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.28iconsStop.png\";\n\n
 /*!****************************************************************************!*\
   !*** ./src/6_0_mainPage/imgMain/3_section/viking_animation/1.17viking.png ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 eval("module.exports = __webpack_require__.p + \"images/1.17viking.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/viking_animation/1.17viking.png?");
@@ -67,7 +67,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.17viking.png\";\n\n//#
 /*!****************************************************************************!*\
   !*** ./src/6_0_mainPage/imgMain/3_section/viking_animation/1.18viking.png ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 eval("module.exports = __webpack_require__.p + \"images/1.18viking.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/viking_animation/1.18viking.png?");
@@ -78,7 +78,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.18viking.png\";\n\n//#
 /*!****************************************************************************!*\
   !*** ./src/6_0_mainPage/imgMain/3_section/viking_animation/1.19viking.png ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 eval("module.exports = __webpack_require__.p + \"images/1.19viking.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/viking_animation/1.19viking.png?");
@@ -89,7 +89,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.19viking.png\";\n\n//#
 /*!****************************************************************************!*\
   !*** ./src/6_0_mainPage/imgMain/3_section/viking_animation/1.20viking.png ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 eval("module.exports = __webpack_require__.p + \"images/1.20viking.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/viking_animation/1.20viking.png?");
@@ -100,7 +100,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.20viking.png\";\n\n//#
 /*!****************************************************************************!*\
   !*** ./src/6_0_mainPage/imgMain/3_section/viking_animation/1.21viking.png ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 eval("module.exports = __webpack_require__.p + \"images/1.21viking.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/viking_animation/1.21viking.png?");
@@ -111,7 +111,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.21viking.png\";\n\n//#
 /*!****************************************************************************!*\
   !*** ./src/6_0_mainPage/imgMain/3_section/viking_animation/1.22viking.png ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 eval("module.exports = __webpack_require__.p + \"images/1.22viking.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/viking_animation/1.22viking.png?");
@@ -122,7 +122,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.22viking.png\";\n\n//#
 /*!****************************************************************************!*\
   !*** ./src/6_0_mainPage/imgMain/3_section/viking_animation/1.23viking.png ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 eval("module.exports = __webpack_require__.p + \"images/1.23viking.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/viking_animation/1.23viking.png?");
@@ -133,7 +133,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.23viking.png\";\n\n//#
 /*!****************************************************************************!*\
   !*** ./src/6_0_mainPage/imgMain/3_section/viking_animation/1.24viking.png ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 eval("module.exports = __webpack_require__.p + \"images/1.24viking.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/viking_animation/1.24viking.png?");
@@ -144,7 +144,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.24viking.png\";\n\n//#
 /*!****************************************************************************!*\
   !*** ./src/6_0_mainPage/imgMain/3_section/viking_animation/1.25viking.png ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 eval("module.exports = __webpack_require__.p + \"images/1.25viking.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/viking_animation/1.25viking.png?");
@@ -155,7 +155,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.25viking.png\";\n\n//#
 /*!****************************************************************************!*\
   !*** ./src/6_0_mainPage/imgMain/3_section/viking_animation/1.26viking.png ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 eval("module.exports = __webpack_require__.p + \"images/1.26viking.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/imgMain/3_section/viking_animation/1.26viking.png?");
@@ -190,7 +190,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.26viking.png\";\n\n//#
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		__webpack_require__.g = (function() {
 /******/ 			if (typeof globalThis === 'object') return globalThis;
 /******/ 			try {
@@ -199,26 +199,26 @@ eval("module.exports = __webpack_require__.p + \"images/1.26viking.png\";\n\n//#
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
+/******/ 		__webpack_require__.r = function(exports) {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		var scriptUrl;
 /******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
 /******/ 		var document = __webpack_require__.g.document;
@@ -235,7 +235,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.26viking.png\";\n\n//#
 /******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
 /******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
 /******/ 		__webpack_require__.p = scriptUrl;
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /************************************************************************/
 /******/ 	

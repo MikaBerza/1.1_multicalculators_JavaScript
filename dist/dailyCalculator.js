@@ -6,15 +6,25 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-/******/ (() => { // webpackBootstrap
+/******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/6_5_dailyCalculatorPage/dailyCalculator.js":
+/*!********************************************************!*\
+  !*** ./src/6_5_dailyCalculatorPage/dailyCalculator.js ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _6_13_globalFiles_headerAndFooterCustomStyle_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../6_13_globalFiles/headerAndFooterCustomStyle.css */ \"./src/6_13_globalFiles/headerAndFooterCustomStyle.css\");\n/* harmony import */ var _dailyCalculator_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dailyCalculator.css */ \"./src/6_5_dailyCalculatorPage/dailyCalculator.css\");\n/* harmony import */ var _imgDailyCalculator_1_37dailyFon_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./imgDailyCalculator/1.37dailyFon.jpg */ \"./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.37dailyFon.jpg\");\n/* harmony import */ var _imgDailyCalculator_1_38iconDaily_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./imgDailyCalculator/1.38iconDaily.png */ \"./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.38iconDaily.png\");\n/* harmony import */ var _imgDailyCalculator_1_39iconFuture_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./imgDailyCalculator/1.39iconFuture.png */ \"./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.39iconFuture.png\");\n/* harmony import */ var _imgDailyCalculator_1_40iconPast_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./imgDailyCalculator/1.40iconPast.png */ \"./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.40iconPast.png\");\n/*активация строго режима*/\n\n\n// импортируем стили css\n\n\n// импортируем изображения\n\n\n\n\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_5_dailyCalculatorPage/dailyCalculator.js?");
+
+/***/ }),
 
 /***/ "./src/6_13_globalFiles/headerAndFooterCustomStyle.css":
 /*!*************************************************************!*\
   !*** ./src/6_13_globalFiles/headerAndFooterCustomStyle.css ***!
   \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_13_globalFiles/headerAndFooterCustomStyle.css?");
 
@@ -24,19 +34,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /*!*********************************************************!*\
   !*** ./src/6_5_dailyCalculatorPage/dailyCalculator.css ***!
   \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_5_dailyCalculatorPage/dailyCalculator.css?");
-
-/***/ }),
-
-/***/ "./src/6_5_dailyCalculatorPage/dailyCalculator.js":
-/*!********************************************************!*\
-  !*** ./src/6_5_dailyCalculatorPage/dailyCalculator.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _6_13_globalFiles_headerAndFooterCustomStyle_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../6_13_globalFiles/headerAndFooterCustomStyle.css */ \"./src/6_13_globalFiles/headerAndFooterCustomStyle.css\");\n/* harmony import */ var _dailyCalculator_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dailyCalculator.css */ \"./src/6_5_dailyCalculatorPage/dailyCalculator.css\");\n/* harmony import */ var _imgDailyCalculator_1_37dailyFon_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./imgDailyCalculator/1.37dailyFon.jpg */ \"./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.37dailyFon.jpg\");\n/* harmony import */ var _imgDailyCalculator_1_38iconDaily_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./imgDailyCalculator/1.38iconDaily.png */ \"./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.38iconDaily.png\");\n/* harmony import */ var _imgDailyCalculator_1_39iconFuture_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./imgDailyCalculator/1.39iconFuture.png */ \"./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.39iconFuture.png\");\n/* harmony import */ var _imgDailyCalculator_1_40iconPast_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./imgDailyCalculator/1.40iconPast.png */ \"./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.40iconPast.png\");\n/*активация строго режима*/\r\n\r\n// импортируем стили css\r\n\r\n\r\n// импортируем изображения\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_5_dailyCalculatorPage/dailyCalculator.js?");
 
 /***/ }),
 
@@ -44,7 +44,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _6_1
 /*!*************************************************************************!*\
   !*** ./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.37dailyFon.jpg ***!
   \*************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 eval("module.exports = __webpack_require__.p + \"images/1.37dailyFon.jpg\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.37dailyFon.jpg?");
 
@@ -54,7 +54,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.37dailyFon.jpg\";\n\n/
 /*!**************************************************************************!*\
   !*** ./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.38iconDaily.png ***!
   \**************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 eval("module.exports = __webpack_require__.p + \"images/1.38iconDaily.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.38iconDaily.png?");
 
@@ -64,7 +64,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.38iconDaily.png\";\n\n
 /*!***************************************************************************!*\
   !*** ./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.39iconFuture.png ***!
   \***************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 eval("module.exports = __webpack_require__.p + \"images/1.39iconFuture.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.39iconFuture.png?");
 
@@ -74,7 +74,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.39iconFuture.png\";\n\
 /*!*************************************************************************!*\
   !*** ./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.40iconPast.png ***!
   \*************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 eval("module.exports = __webpack_require__.p + \"images/1.40iconPast.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_5_dailyCalculatorPage/imgDailyCalculator/1.40iconPast.png?");
 
@@ -108,7 +108,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.40iconPast.png\";\n\n/
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		__webpack_require__.g = (function() {
 /******/ 			if (typeof globalThis === 'object') return globalThis;
 /******/ 			try {
@@ -117,21 +117,21 @@ eval("module.exports = __webpack_require__.p + \"images/1.40iconPast.png\";\n\n/
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
+/******/ 		__webpack_require__.r = function(exports) {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		var scriptUrl;
 /******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
 /******/ 		var document = __webpack_require__.g.document;
@@ -148,7 +148,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.40iconPast.png\";\n\n/
 /******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
 /******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
 /******/ 		__webpack_require__.p = scriptUrl;
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /************************************************************************/
 /******/ 	

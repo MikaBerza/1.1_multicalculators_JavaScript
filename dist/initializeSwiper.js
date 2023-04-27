@@ -6,16 +6,16 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-/******/ (() => { // webpackBootstrap
+/******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/6_0_mainPage/initializeSwiper.js":
 /*!**********************************************!*\
   !*** ./src/6_0_mainPage/initializeSwiper.js ***!
   \**********************************************/
-/***/ (() => {
+/***/ (function() {
 
-eval("\r\nconst swiper = new Swiper('.swiper', {\r\n  // Optional parameters\r\n  direction: 'horizontal',\r\n  loop: true,\r\n\r\n  // If we need pagination\r\n  pagination: {\r\n    el: '.swiper-pagination',\r\n  },\r\n\r\n  // Navigation arrows\r\n  navigation: {\r\n    nextEl: '.swiper-button-next',\r\n    prevEl: '.swiper-button-prev',\r\n  },\r\n\r\n  // Cube Effect Parameters\r\n  effect: 'cube',\r\n});\r\n\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/initializeSwiper.js?");
+eval("const swiper = new Swiper('.swiper', {\n  // Optional parameters\n  direction: 'horizontal',\n  loop: true,\n  // If we need pagination\n  pagination: {\n    el: '.swiper-pagination'\n  },\n  // Navigation arrows\n  navigation: {\n    nextEl: '.swiper-button-next',\n    prevEl: '.swiper-button-prev'\n  },\n  // Cube Effect Parameters\n  effect: 'cube'\n});\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_0_mainPage/initializeSwiper.js?");
 
 /***/ })
 

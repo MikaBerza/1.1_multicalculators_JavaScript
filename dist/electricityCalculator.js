@@ -6,15 +6,25 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-/******/ (() => { // webpackBootstrap
+/******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/6_7_electricityCalculatorPage/electricityCalculator.js":
+/*!********************************************************************!*\
+  !*** ./src/6_7_electricityCalculatorPage/electricityCalculator.js ***!
+  \********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _6_13_globalFiles_headerAndFooterCustomStyle_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../6_13_globalFiles/headerAndFooterCustomStyle.css */ \"./src/6_13_globalFiles/headerAndFooterCustomStyle.css\");\n/* harmony import */ var _electricityCalculator_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./electricityCalculator.css */ \"./src/6_7_electricityCalculatorPage/electricityCalculator.css\");\n/* harmony import */ var _imgElectricityCalculator_1_43barcode_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./imgElectricityCalculator/1.43barcode.jpg */ \"./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.43barcode.jpg\");\n/* harmony import */ var _imgElectricityCalculator_1_44counter_jpeg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./imgElectricityCalculator/1.44counter.jpeg */ \"./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.44counter.jpeg\");\n/* harmony import */ var _imgElectricityCalculator_1_45fonElectricity_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./imgElectricityCalculator/1.45fonElectricity.jpg */ \"./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.45fonElectricity.jpg\");\n/* harmony import */ var _imgElectricityCalculator_1_46markOfApproval_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./imgElectricityCalculator/1.46markOfApproval.png */ \"./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.46markOfApproval.png\");\n/* harmony import */ var _imgElectricityCalculator_1_47markOfConformity_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./imgElectricityCalculator/1.47markOfConformity.png */ \"./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.47markOfConformity.png\");\n/*активация строго режима*/\n\n\n// импортируем стили css\n\n\n// импортируем изображения\n\n\n\n\n\n\n/*↓↓---------------------Раздел переменных-----------------------------------------↓↓*/\n// Считываем элементы li текущего показания Т1\nconst currentReadingsT1 = document.getElementById('listOfCurrentItemsT1').children;\n// Считываем элемент input текущего показания Т1\nconst inputCurrentT1 = document.getElementById('inputCurrentT1');\n\n// Считываем элементы li предыдущего показания Т1\nconst previousReadingsT1 = document.getElementById('listOfPreviousItemsT1').children;\n// Считываем элемент input предыдущего показания Т1\nconst inputPreviousT1 = document.getElementById('inputPreviousT1');\n\n/*↑↑---------------------Раздел переменных--------------------------------------------↑↑*/\n\n/*↓---------------------Раздел с общими функциями---------------------------------------↓*/\n// Ф1\n// Функция возвращает восьмеричный массив\n// с ввода текущих/предыдущих показаний (данных) счетчика\nfunction getOctalArray(dataCounter) {\n  // Считываем строку\n  let str = dataCounter;\n  // Делаем из строки массив\n  let arr = str.split('');\n  if (arr.length === 8) {\n    return arr;\n  } else {\n    console.log('В массиве МЕНЬШЕ 8 символов');\n    return ['null'];\n  }\n}\n\n// Ф2\n// Возвращает число совпадений.\n// Это своеобразная проверка, мы проверяем сколько чисел введено в инпут,\n// если количество совпадений равно 8, то в инпут ввели все числа.\nfunction getNumberOfMatches(octalArray) {\n  // Массив цифр с которыми сравнивается восьмеричный массив\n  let arrNum1 = '1234567890'.split('');\n  // Счетчик совпадений!\n  // Если ввили все цифры, он будет равен 8.\n  let counter = 0;\n  for (let i = 0; i < arrNum1.length; i++) {\n    for (let j = 0; j < octalArray.length; j++) {\n      if (arrNum1[i] === octalArray[j]) {\n        counter += 1;\n      }\n    }\n  }\n  return counter;\n}\n\n// Ф3\n// Функция выводит в li элементы, значения с инпута\n// которые прошли проверку и являются числами\nfunction outputNewElementsLi(listLi, inputData) {\n  // Восьмеричный массив из показаний счетчика\n  let octalArrayOfReadings = getOctalArray(inputData.value);\n  // Число (количество) совпадений\n  let numberOfMatches = getNumberOfMatches(octalArrayOfReadings);\n  console.log(octalArrayOfReadings);\n  console.log(numberOfMatches);\n  if (numberOfMatches === 8) {\n    console.log('+++ условие true');\n    for (let i = 0; i < octalArrayOfReadings.length; i++) {\n      // присваиваем каждому элементу списка li\n      // значение с инпута\n      listLi[i].innerHTML = octalArrayOfReadings[i];\n      inputData.classList.remove('bordTwo');\n    }\n  } else {\n    console.log('--- условие false');\n    inputData.classList.add('bordTwo');\n  }\n}\n\n/*↓↓---------------------Объединяющее все функции событие------------------------------------↓↓*/\n// При потери фокуса после ввода в инпут чисел,\n// эти числа автоматически появляются на счетчике №1 ХВС\n// т.е. в списке li\ninputCurrentT1.addEventListener('blur', function () {\n  outputNewElementsLi(currentReadingsT1, inputCurrentT1);\n});\n// При потери фокуса после ввода в инпут чисел,\n// эти числа автоматически появляются на счетчике №2 ХВС\n// т.е. в списке li\ninputPreviousT1.addEventListener('blur', function () {\n  outputNewElementsLi(previousReadingsT1, inputPreviousT1);\n});\n/*↑↑---------------------Объединяющее все функции событие------------------------------------↑↑*/\n\n// ==================ДОДЕЛАТЬ!=========ДОДЕЛАТЬ!==============ДОДЕЛАТЬ!=====\n// ==================ДОДЕЛАТЬ!=========ДОДЕЛАТЬ!==============ДОДЕЛАТЬ!=====\n// ==================ДОДЕЛАТЬ!=========ДОДЕЛАТЬ!==============ДОДЕЛАТЬ!=====\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_7_electricityCalculatorPage/electricityCalculator.js?");
+
+/***/ }),
 
 /***/ "./src/6_13_globalFiles/headerAndFooterCustomStyle.css":
 /*!*************************************************************!*\
   !*** ./src/6_13_globalFiles/headerAndFooterCustomStyle.css ***!
   \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_13_globalFiles/headerAndFooterCustomStyle.css?");
 
@@ -24,19 +34,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /*!*********************************************************************!*\
   !*** ./src/6_7_electricityCalculatorPage/electricityCalculator.css ***!
   \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_7_electricityCalculatorPage/electricityCalculator.css?");
-
-/***/ }),
-
-/***/ "./src/6_7_electricityCalculatorPage/electricityCalculator.js":
-/*!********************************************************************!*\
-  !*** ./src/6_7_electricityCalculatorPage/electricityCalculator.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _6_13_globalFiles_headerAndFooterCustomStyle_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../6_13_globalFiles/headerAndFooterCustomStyle.css */ \"./src/6_13_globalFiles/headerAndFooterCustomStyle.css\");\n/* harmony import */ var _electricityCalculator_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./electricityCalculator.css */ \"./src/6_7_electricityCalculatorPage/electricityCalculator.css\");\n/* harmony import */ var _imgElectricityCalculator_1_43barcode_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./imgElectricityCalculator/1.43barcode.jpg */ \"./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.43barcode.jpg\");\n/* harmony import */ var _imgElectricityCalculator_1_44counter_jpeg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./imgElectricityCalculator/1.44counter.jpeg */ \"./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.44counter.jpeg\");\n/* harmony import */ var _imgElectricityCalculator_1_45fonElectricity_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./imgElectricityCalculator/1.45fonElectricity.jpg */ \"./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.45fonElectricity.jpg\");\n/* harmony import */ var _imgElectricityCalculator_1_46markOfApproval_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./imgElectricityCalculator/1.46markOfApproval.png */ \"./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.46markOfApproval.png\");\n/* harmony import */ var _imgElectricityCalculator_1_47markOfConformity_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./imgElectricityCalculator/1.47markOfConformity.png */ \"./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.47markOfConformity.png\");\n/*активация строго режима*/\r\n\r\n// импортируем стили css\r\n\r\n\r\n// импортируем изображения\r\n\r\n\r\n\r\n\r\n\r\n\r\n/*↓↓---------------------Раздел переменных-----------------------------------------↓↓*/\r\n// Считываем элементы li текущего показания Т1\r\nconst currentReadingsT1 = document.getElementById(\r\n  'listOfCurrentItemsT1'\r\n).children;\r\n// Считываем элемент input текущего показания Т1\r\nconst inputCurrentT1 = document.getElementById('inputCurrentT1');\r\n\r\n// Считываем элементы li предыдущего показания Т1\r\nconst previousReadingsT1 = document.getElementById(\r\n  'listOfPreviousItemsT1'\r\n).children;\r\n// Считываем элемент input предыдущего показания Т1\r\nconst inputPreviousT1 = document.getElementById('inputPreviousT1');\r\n\r\n/*↑↑---------------------Раздел переменных--------------------------------------------↑↑*/\r\n\r\n/*↓---------------------Раздел с общими функциями---------------------------------------↓*/\r\n// Ф1\r\n// Функция возвращает восьмеричный массив\r\n// с ввода текущих/предыдущих показаний (данных) счетчика\r\nfunction getOctalArray(dataCounter) {\r\n  // Считываем строку\r\n  let str = dataCounter;\r\n  // Делаем из строки массив\r\n  let arr = str.split('');\r\n  if (arr.length === 8) {\r\n    return arr;\r\n  } else {\r\n    console.log('В массиве МЕНЬШЕ 8 символов');\r\n    return ['null'];\r\n  }\r\n}\r\n\r\n// Ф2\r\n// Возвращает число совпадений.\r\n// Это своеобразная проверка, мы проверяем сколько чисел введено в инпут,\r\n// если количество совпадений равно 8, то в инпут ввели все числа.\r\nfunction getNumberOfMatches(octalArray) {\r\n  // Массив цифр с которыми сравнивается восьмеричный массив\r\n  let arrNum1 = '1234567890'.split('');\r\n  // Счетчик совпадений!\r\n  // Если ввили все цифры, он будет равен 8.\r\n  let counter = 0;\r\n  for (let i = 0; i < arrNum1.length; i++) {\r\n    for (let j = 0; j < octalArray.length; j++) {\r\n      if (arrNum1[i] === octalArray[j]) {\r\n        counter += 1;\r\n      }\r\n    }\r\n  }\r\n  return counter;\r\n}\r\n\r\n// Ф3\r\n// Функция выводит в li элементы, значения с инпута\r\n// которые прошли проверку и являются числами\r\nfunction outputNewElementsLi(listLi, inputData) {\r\n  // Восьмеричный массив из показаний счетчика\r\n  let octalArrayOfReadings = getOctalArray(inputData.value);\r\n  // Число (количество) совпадений\r\n  let numberOfMatches = getNumberOfMatches(octalArrayOfReadings);\r\n\r\n  console.log(octalArrayOfReadings);\r\n  console.log(numberOfMatches);\r\n\r\n  if (numberOfMatches === 8) {\r\n    console.log('+++ условие true');\r\n    for (let i = 0; i < octalArrayOfReadings.length; i++) {\r\n      // присваиваем каждому элементу списка li\r\n      // значение с инпута\r\n      listLi[i].innerHTML = octalArrayOfReadings[i];\r\n      inputData.classList.remove('bordTwo');\r\n    }\r\n  } else {\r\n    console.log('--- условие false');\r\n    inputData.classList.add('bordTwo');\r\n  }\r\n}\r\n\r\n/*↓↓---------------------Объединяющее все функции событие------------------------------------↓↓*/\r\n// При потери фокуса после ввода в инпут чисел,\r\n// эти числа автоматически появляются на счетчике №1 ХВС\r\n// т.е. в списке li\r\ninputCurrentT1.addEventListener('blur', function () {\r\n  outputNewElementsLi(currentReadingsT1, inputCurrentT1);\r\n});\r\n// При потери фокуса после ввода в инпут чисел,\r\n// эти числа автоматически появляются на счетчике №2 ХВС\r\n// т.е. в списке li\r\ninputPreviousT1.addEventListener('blur', function () {\r\n  outputNewElementsLi(previousReadingsT1, inputPreviousT1);\r\n});\r\n/*↑↑---------------------Объединяющее все функции событие------------------------------------↑↑*/\r\n\r\n// ==================ДОДЕЛАТЬ!=========ДОДЕЛАТЬ!==============ДОДЕЛАТЬ!=====\r\n// ==================ДОДЕЛАТЬ!=========ДОДЕЛАТЬ!==============ДОДЕЛАТЬ!=====\r\n// ==================ДОДЕЛАТЬ!=========ДОДЕЛАТЬ!==============ДОДЕЛАТЬ!=====\r\n\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_7_electricityCalculatorPage/electricityCalculator.js?");
 
 /***/ }),
 
@@ -44,7 +44,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _6_1
 /*!************************************************************************************!*\
   !*** ./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.43barcode.jpg ***!
   \************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 eval("module.exports = __webpack_require__.p + \"images/1.43barcode.jpg\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.43barcode.jpg?");
 
@@ -54,7 +54,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.43barcode.jpg\";\n\n//
 /*!*************************************************************************************!*\
   !*** ./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.44counter.jpeg ***!
   \*************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 eval("module.exports = __webpack_require__.p + \"images/1.44counter.jpeg\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.44counter.jpeg?");
 
@@ -64,7 +64,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.44counter.jpeg\";\n\n/
 /*!*******************************************************************************************!*\
   !*** ./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.45fonElectricity.jpg ***!
   \*******************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 eval("module.exports = __webpack_require__.p + \"images/1.45fonElectricity.jpg\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.45fonElectricity.jpg?");
 
@@ -74,7 +74,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.45fonElectricity.jpg\"
 /*!*******************************************************************************************!*\
   !*** ./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.46markOfApproval.png ***!
   \*******************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 eval("module.exports = __webpack_require__.p + \"images/1.46markOfApproval.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.46markOfApproval.png?");
 
@@ -84,7 +84,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.46markOfApproval.png\"
 /*!*********************************************************************************************!*\
   !*** ./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.47markOfConformity.png ***!
   \*********************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 eval("module.exports = __webpack_require__.p + \"images/1.47markOfConformity.png\";\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_7_electricityCalculatorPage/imgElectricityCalculator/1.47markOfConformity.png?");
 
@@ -118,7 +118,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.47markOfConformity.png
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		__webpack_require__.g = (function() {
 /******/ 			if (typeof globalThis === 'object') return globalThis;
 /******/ 			try {
@@ -127,21 +127,21 @@ eval("module.exports = __webpack_require__.p + \"images/1.47markOfConformity.png
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
+/******/ 		__webpack_require__.r = function(exports) {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		var scriptUrl;
 /******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
 /******/ 		var document = __webpack_require__.g.document;
@@ -158,7 +158,7 @@ eval("module.exports = __webpack_require__.p + \"images/1.47markOfConformity.png
 /******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
 /******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
 /******/ 		__webpack_require__.p = scriptUrl;
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /************************************************************************/
 /******/ 	

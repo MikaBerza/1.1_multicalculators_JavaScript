@@ -6,7 +6,7 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-/******/ (() => { // webpackBootstrap
+/******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
@@ -14,9 +14,9 @@
 /*!***********************************************************!*\
   !*** ./src/6_13_globalFiles/borschPancakesPilafScript.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\r\n//\r\n//\r\n//\r\n\r\n/*-----Формула для проектов: 6_1_borschPage, 6_2_pancakesPage, 6_3_pilafPage---------------------------------*/\r\nfunction calculateNumberOfProducts(\r\n  elemInput,\r\n  elemProductsArr,\r\n  elemQuantityArr,\r\n  elemCellSalt,\r\n  elemProductPerServing\r\n) {\r\n  for (let i = 0; i < elemProductsArr.length; i++) {\r\n    if (\r\n      elemInput.value === '' ||\r\n      elemInput.value[0] === '-' ||\r\n      elemInput.value.length > 3\r\n    ) {\r\n      // Инпут изменяется если в него вводят не числовое значение\r\n      elemInput.value = 0;\r\n      elemQuantityArr[i].innerHTML = 0;\r\n      // если вводят число \"0\", то поля возвращаются в стандартные состояния\r\n    } else if (Number(elemInput.value) === 0) {\r\n      elemQuantityArr[i].innerHTML = 0;\r\n      elemCellSalt.innerHTML = 0;\r\n    } else {\r\n      // формула для заполнения ячеек в колонке 'Колличество'\r\n      elemQuantityArr[i].innerHTML = (\r\n        Number(elemInput.value) *\r\n        elemProductPerServing[elemProductsArr[i].innerHTML]\r\n      ).toFixed(2);\r\n      elemCellSalt.innerHTML = 'по вкусу';\r\n    }\r\n  }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calculateNumberOfProducts);\r\n\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_13_globalFiles/borschPancakesPilafScript.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n\n\n//\n//\n//\n\n/*-----Формула для проектов: 6_1_borschPage, 6_2_pancakesPage, 6_3_pilafPage---------------------------------*/\nfunction calculateNumberOfProducts(elemInput, elemProductsArr, elemQuantityArr, elemCellSalt, elemProductPerServing) {\n  for (let i = 0; i < elemProductsArr.length; i++) {\n    if (elemInput.value === '' || elemInput.value[0] === '-' || elemInput.value.length > 3) {\n      // Инпут изменяется если в него вводят не числовое значение\n      elemInput.value = 0;\n      elemQuantityArr[i].innerHTML = 0;\n      // если вводят число \"0\", то поля возвращаются в стандартные состояния\n    } else if (Number(elemInput.value) === 0) {\n      elemQuantityArr[i].innerHTML = 0;\n      elemCellSalt.innerHTML = 0;\n    } else {\n      // формула для заполнения ячеек в колонке 'Колличество'\n      elemQuantityArr[i].innerHTML = (Number(elemInput.value) * elemProductPerServing[elemProductsArr[i].innerHTML]).toFixed(2);\n      elemCellSalt.innerHTML = 'по вкусу';\n    }\n  }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (calculateNumberOfProducts);\n\n//# sourceURL=webpack://1.1_multicalculators_javascript/./src/6_13_globalFiles/borschPancakesPilafScript.js?");
 
 /***/ })
 
@@ -26,33 +26,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	var __webpack_require__ = {};
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
+/******/ 		__webpack_require__.r = function(exports) {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /************************************************************************/
 /******/ 	
