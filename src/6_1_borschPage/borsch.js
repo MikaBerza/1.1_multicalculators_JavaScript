@@ -1,12 +1,12 @@
-/*активация строго режима*/
-'use strict';
+// 'use strict';  отключил строгий режим по требованию eslint
 // импортируем стили css
 import '../6_13_globalFiles/headerAndFooterCustomStyle.css';
 import '../6_13_globalFiles/borschPancakesPilafStyle.css';
 import './borsch.css';
 // импортируем фоновое изображение
+// eslint-disable-next-line no-unused-vars
 import logoCalculator from './imgBorsch/1.32fonBorsch.jpg';
-//импортирую функцию
+// импортирую функцию
 import calculateNumberOfProducts from '../6_13_globalFiles/borschPancakesPilafScript';
 
 // Считываем инпут
@@ -36,13 +36,14 @@ const productPerServing = {
   Вода: 0.25,
 };
 
-// По нажатию на кнопку 'РАССЧИТАТЬ', ячейки столбца 'Количество' заполняются требуемым грамможем(граммами) продуктов
-btn.addEventListener('click', function () {
+/* По нажатию на кнопку 'РАССЧИТАТЬ', ячейки столбца 'Количество'
+заполняются требуемым грамможем(граммами) продуктов */
+btn.addEventListener('click', () => {
   calculateNumberOfProducts(
     input,
     productsArr,
     quantityArr,
     cellSalt,
-    productPerServing
+    productPerServing,
   );
 });
