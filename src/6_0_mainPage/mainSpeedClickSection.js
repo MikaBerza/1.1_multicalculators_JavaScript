@@ -1,5 +1,5 @@
-/*активация строго режима*/
-'use strict';
+/* eslint-disable import/first */
+// 'use strict';  отключил строгий режим по требованию eslint
 
 // Считываем кнопку клик
 const btnClick = document.getElementById('btnClickSectionFour');
@@ -13,21 +13,20 @@ const counterSF = document.getElementById('counterSectionFour');
 const resultSF = document.getElementById('resultSectionFour');
 
 // импортируем картинки (4_section)
-import fonSectionFour from '../6_0_mainPage/imgMain/4_section/1.29fonSectionFour.jpg';
-import iconClick from '../6_0_mainPage/imgMain/4_section/1.30iconClick.png';
-import iconUpdate from '../6_0_mainPage/imgMain/4_section/1.31iconUpdate.png';
+// eslint-disable-next-line no-unused-vars
+import fonSectionFour from './imgMain/4_section/1.29fonSectionFour.jpg';
+// eslint-disable-next-line no-unused-vars
+import iconClick from './imgMain/4_section/1.30iconClick.png';
+// eslint-disable-next-line no-unused-vars
+import iconUpdate from './imgMain/4_section/1.31iconUpdate.png';
 
-/* 
-Инициализируем переменную (timer) как глобальную
-чтобы в ней между запусками функции хранилось значение
-*/
+/* Инициализируем переменную (timer) как глобальную
+чтобы в ней между запусками функции хранилось значение */
 let timerClick;
 
-/* 
-Инициализируем переменную (internalCounter)
+/* Инициализируем переменную (internalCounter)
 внутренний счетчик и присваиваем ей значение 30
-(это будет 30 секунд)
-*/
+(это будет 30 секунд) */
 let internalCounter = 30;
 
 // Функция запускает таймер
@@ -35,7 +34,7 @@ function startTimer() {
   // отвязываем обработчик события (т.е. по клику перестаем запускать функцию startTimer)
   this.removeEventListener('click', startTimer);
 
-  timerClick = setInterval(function () {
+  timerClick = setInterval(() => {
     --internalCounter;
     // проверяю как работате
     // console.log(internalCounter);
@@ -55,7 +54,7 @@ function startClick() {
     // отвязываем обработчик события (т.е. по клику перестаем запускать функцию startClick)
     this.removeEventListener('click', startClick);
     /* Выводим общее кол-во кликов в секунду.
-    Метод toFixed производит округление числа до указанного знака в дробной части.*/
+    Метод toFixed производит округление числа до указанного знака в дробной части */
     resultSF.innerHTML = (counterSF.innerHTML / 30).toFixed(2);
   }
 }
@@ -77,10 +76,8 @@ function setStartPosition() {
   btnClick.addEventListener('click', startClick);
 }
 
-/*
-Метод addEventListener - добавляет обработчик события к указанному элементу и 
-запустить выполнение программы при совершении заданного действия
-*/
+/* Метод addEventListener - добавляет обработчик события к указанному элементу и
+запустить выполнение программы при совершении заданного действия */
 btnClick.addEventListener('click', startTimer);
 btnClick.addEventListener('click', startClick);
 btnReboot.addEventListener('click', setStartPosition);
