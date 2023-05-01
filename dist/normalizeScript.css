@@ -1,3 +1,6 @@
+/*!********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/normalize.css/normalize.css ***!
+  \********************************************************************************************/
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -348,4 +351,11 @@ template {
   display: none;
 }
 
-
+/*!****************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/6_13_globalFiles/normalizeStyle.css ***!
+  \****************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/* импортируем  normalize.css из папки node_modules
+т.к. этот файл указан в файле package.json, то длинный путь писать не надо
+webpack сам все понимает*/
+/* @import 'normalize.css'; */

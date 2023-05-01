@@ -1,5 +1,5 @@
-/*активация строго режима*/
-'use strict';
+/* eslint-disable no-unused-vars */
+// 'use strict';  отключил строгий режим по требованию eslint
 // импортируем стили css
 import '../6_13_globalFiles/headerAndFooterCustomStyle.css';
 import './dailyCalculator.css';
