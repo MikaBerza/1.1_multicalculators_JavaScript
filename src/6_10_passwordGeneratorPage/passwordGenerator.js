@@ -1,9 +1,9 @@
-/*активация строго режима*/
-'use strict';
+// 'use strict';  отключил строгий режим по требованию eslint
 // импортируем стили css
 import '../6_13_globalFiles/headerAndFooterCustomStyle.css';
 import './passwordGenerator.css';
 // импортируем изображения
+// eslint-disable-next-line no-unused-vars
 import fonPasswordGenerator from './imgPasswordGenerator/1.50fonPasswordGenerator.jpg';
 
 // Считываем кнопку сгенерировать
@@ -27,13 +27,14 @@ function getRandom(min, max) {
 function generatePassword() {
   // в переменную result накапливаем результат в цикле
   let result = '';
-  /*строка с случайными символами из которой с помощью 
+  /* строка с случайными символами из которой с помощью
     функции getRandom() в переменную result записывается пароль
-    с указанным числом символов*/
-  let str = `0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM!"№;%:?*()_+`;
+    с указанным числом символов */
+  const str = `0123456789qwertyuiopasdfghjklzxcvbnmQ
+  WERTYUIOPASDFGHJKLZXCVBNM!"№;%:?*()_+`;
 
-  /* Количество случайных символов, т.е. сколько случайных символов нам 
-    нужно вывести, такое значение и задаем переменной numberOfCharacters*/
+  /* Количество случайных символов, т.е. сколько случайных символов нам
+    нужно вывести, такое значение и задаем переменной numberOfCharacters */
   const numberOfCharacters = Number(labelRangeNumber.innerHTML);
 
   for (let i = 0; i < numberOfCharacters; i++) {
@@ -46,7 +47,7 @@ function generatePassword() {
 }
 
 /*
-Метод addEventListener - добавляет обработчик события к указанному элементу и 
+Метод addEventListener - добавляет обработчик события к указанному элементу и
 запустить выполнение программы при совершении заданного действия
 */
 inputRange.addEventListener('input', setPasswordLength);
