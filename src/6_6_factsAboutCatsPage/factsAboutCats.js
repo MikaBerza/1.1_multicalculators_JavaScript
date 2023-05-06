@@ -34,15 +34,10 @@ const urlCatFact = 'https://catfact.ninja/fact';
 // async await - асинхронное ожидание
 async function fetchHandler() {
   try {
-    /* здесь храниться ответ от сервера, если бы не была написано
-    конструкция async await, то мы бы получали промис */
+    /* здесь храниться ответ от сервера */
     const responseFact = await fetch(urlCatFact);
-    // console.log(responseFact);
-
     // поучаем тело ответа
     const dataFact = await responseFact.json();
-    // console.log(dataFact);
-
     fact.textContent = dataFact.fact;
   } catch (error) {
     // если возникнет ошибка, то мы выведем текст (Ошибка загрузки !!!)
@@ -50,5 +45,4 @@ async function fetchHandler() {
     // console.log(error);
   }
 }
-
 img.addEventListener('click', fetchHandler);

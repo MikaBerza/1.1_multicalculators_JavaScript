@@ -72,7 +72,6 @@ async function getDataIP(ip) {
     // response.json() – декодирует ответ в формате JSON
     // тело ответа от сервера c текущими данными по IP-адресу
     const responseBodyCurrentIPData = responseWithCurrentIPData.json();
-    // console.log(responseBodyCurrentIPData);
     result = responseBodyCurrentIPData;
     return result;
   } catch (error) {
@@ -87,18 +86,19 @@ function checkTheResponseCode(status) {
   if (status >= 100 && status <= 103) {
     responseCode = `код ответа ${status} - (информационный)`;
     // console.log(`код ответа ${status} - (информационный)`);
-  }
-  if (status >= 200 && status <= 226) {
+  } else if (status >= 200 && status <= 226) {
     responseCode = `код ответа ${status} - (успешно)`;
     // console.log(`код ответа ${status} - (успешно)`);
-  }
-  if (status >= 400 && status <= 499) {
+  } else if (status >= 400 && status <= 499) {
     responseCode = `код ответа ${status} - (ошибка клиента)`;
     // console.log(`код ответа ${status} - (ошибка клиента)`);
-  }
-  if (status >= 500 && status <= 526) {
+  } else if (status >= 500 && status <= 526) {
     responseCode = `код ответа ${status} - (ошибка сервера)`;
     // console.log(`код ответа ${status} - (ошибка сервера)`);
+  } else if (status === 'fail') {
+    responseCode = 'fail';
+  } else if (status === 'success') {
+    responseCode = 'success';
   }
   return responseCode;
 }
@@ -113,31 +113,28 @@ function fillTheTableWithEmptyCells(arrOfCells1, arrOfCells2) {
 
 // Функция выводит ответ от сервера в таблицу (таблица БЕЗ ОШИБОК)
 function outputTheTableWithoutErrors(arrKeys, arrValues) {
-  if (arrKeys.length === arrValues.length && arrKeys.length !== 2) {
-    // Очищаем ячейки (таблица С ОШИБКАМИ)
-    fillTheTableWithEmptyCells(arrTableNameError, arrTableMeaningError);
-    // Заполняем таблицу (таблица БЕЗ ОШИБОК)
-    for (let i = 0; i < arrKeys.length; i++) {
-      arrTableName[i].textContent = `${arrKeys[i]}:`;
-      // console.log(arrTableName[i]);
-      arrTableMeaning[i].textContent = arrValues[i];
-    }
+  // Очищаем ячейки (таблица С ОШИБКАМИ)
+  fillTheTableWithEmptyCells(arrTableNameError, arrTableMeaningError);
+  // Заполняем таблицу (таблица БЕЗ ОШИБОК)
+  for (let i = 0; i < arrKeys.length; i++) {
+    arrTableName[i].textContent = `${arrKeys[i]}:`;
+    // console.log(arrTableName[i]);
+    arrTableMeaning[i].textContent = arrValues[i];
   }
 }
 
 // Функция выводит ответ от сервера в таблицу (таблица С ОШИБКАМИ)
 function outputTheTableWithAnError(arrKeys, arrValues) {
-  if (arrKeys.length === 2) {
-    // Очищаем ячейки (таблица БЕЗ ОШИБОК)
-    fillTheTableWithEmptyCells(arrTableName, arrTableMeaning);
-    // Заполняем таблицу (таблица С ОШИБКАМИ)
-    arrTableNameError[0].textContent = `${arrKeys[0]} : `;
-    arrTableNameError[1].textContent = `${arrKeys[1]} : `;
+  // Очищаем ячейки (таблица БЕЗ ОШИБОК)
+  fillTheTableWithEmptyCells(arrTableName, arrTableMeaning);
+  // Заполняем таблицу (таблица С ОШИБКАМИ)
+  arrTableNameError[0].textContent = `${arrKeys[0]} : `;
+  arrTableNameError[1].textContent = `${arrKeys[1]} : `;
+  arrTableNameError[2].textContent = `${arrKeys[2]} : `;
 
-    arrTableMeaningError[0].textContent = checkTheResponseCode(arrValues[0]);
-    const textError = `${arrValues[1].title}. ${arrValues[1].message}.`;
-    arrTableMeaningError[1].textContent = textError;
-  }
+  arrTableMeaningError[0].textContent = arrValues[0];
+  arrTableMeaningError[1].textContent = arrValues[1];
+  arrTableMeaningError[2].textContent = arrValues[2];
 }
 
 getCurrentIPAddress(url_IP).then((ipAddress) => {
@@ -155,9 +152,13 @@ btnData.addEventListener('click', () => {
     // массив с значениями объекта
     const arrValueIpData = Object.values(ipData);
 
-    // Функция выводит ответ от сервера в таблицу (таблица БЕЗ ОШИБОК)
-    outputTheTableWithoutErrors(arrKeysIpData, arrValueIpData);
-    // Функция выводит ответ от сервера в таблицу (таблица С ОШИБКАМИ)
-    outputTheTableWithAnError(arrKeysIpData, arrValueIpData);
+    if (checkTheResponseCode(arrValueIpData[0]) === 'success'
+      && inpData.value.length !== 0) {
+      // Функция выводит ответ от сервера в таблицу (таблица БЕЗ ОШИБОК)
+      outputTheTableWithoutErrors(arrKeysIpData, arrValueIpData);
+    } else {
+      // Функция выводит ответ от сервера в таблицу (таблица С ОШИБКАМИ)
+      outputTheTableWithAnError(arrKeysIpData, arrValueIpData);
+    }
   });
 });
