@@ -9,26 +9,30 @@
   <title>Идентификация</title>
 </head>
 
-<body>
-  <form>
-    <div class="logo__header">
-      <img src="./images/logo-calculator.png" height="50" alt="">
-      <h4>Вход в мульти вычислители</h4>
-      <h5>Заполните поля</h5>
+<body class="authentication__container">
+  <form class="authentication__wrapper">
+    <div class="authentication__logo">
+      <img src="./images/logo-calculator.png" height="50" alt="img">
+      <h4 class="authentication__logo-heading">Вход в мульти вычислители</h4>
+      <h5 class="authentication__logo-requirement">Заполните поля</h5>
     </div>
     <div class="mb-3">
       <!-- autocomplete="off" - Отключает автозаполнение - что было введено раньше-->
-      <input id="inputEmail1" type="email" class="form-control" autocomplete="off" placeholder="Адрес эл.почты">
+      <input name="email" type="email" class="form-control email" autocomplete="off" placeholder="Адрес эл.почты">
     </div>
     <div class="mb-3">
-      <input id="inputPassword1" type="password" class="form-control" autocomplete="off" placeholder="Пароль">
+      <input name="password" type="password" class="form-control password" autocomplete="off" placeholder="Пароль"
+        minlength="5" maxlength="20">
     </div>
     <div class="mb-3 form-check">
-      <input id="inputCheck1" type="checkbox" class="form-check-input">
-      <label class="form-check-label" for="inputCheck1">Я не робот</label>
+      <label class="form-check-label">
+        <input name="checkbox" type="checkbox" class="form-check-input checkbox">
+        Я не робот
+      </label>
     </div>
-    <button id="entryButton" type="button" class="btn btn-primary">Войти</button>
-    <h6>Вычислители помогают автоматизировать бытовые домашние расчеты и немного развлечься</h6>
+    <button id="entryButton" type="submit" class="btn btn-primary authentication__btn">Войти</button>
+    <h6 class="authentication__description">Вычислители помогают автоматизировать бытовые домашние расчеты и немного
+      развлечься</h6>
   </form>
 </body>
 

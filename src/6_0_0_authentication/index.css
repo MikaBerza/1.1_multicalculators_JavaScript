@@ -1,11 +1,10 @@
-
-body {
+.authentication__container {
   display: flex;
   justify-content: space-around;
 }
 
 
-form {
+.authentication__wrapper {
   max-width: 400px;
   margin: 20px;
   border: 1px solid #ced4da;
@@ -13,53 +12,42 @@ form {
   padding: 20px;
 }
 
-/* ------------------Изменяемый бордер элементов ввода------------------------------- */
-.bordOne {
-  border: 1px solid #ced4da;
+.authentication__logo {
+  text-align: center;
 }
 
-.bordTwo {
-  border: 2px solid red;
-}
-
-/* ------------------Изменяемый бордер элементов ввода------------------------------- */
-
-h4 {
+.authentication__logo-heading {
   margin-top: 14px;
   font-weight: 400;
 }
 
-h5 {
+.authentication__logo-requirement {
   margin-top: 14px;
   margin-bottom: 14px;
   font-weight: 300;
 }
 
-h6 {
+.authentication__description {
   margin-top: 14px;
   font-weight: 200;
   text-align: center;
 }
 
-p {
-  margin-top: 14px;
-  margin-bottom: 20px;
-  font-weight: 400;
-}
-
-.logo__header {
-  text-align: center;
-}
-
-.btn {
-  display: block;
+.authentication__btn {
   width: 100%;
-}
 
-.btn-primary {
   --bs-btn-bg: #0088cc;
   --bs-btn-border-color: #0088cc;
-
   --bs-btn-hover-border-color: #00416A;
   --bs-btn-hover-bg: #00416A;
 }
+
+/* ------------------Изменяемый бордер и текст элементов ввода------------------------------- */
+.authentication__style-error {
+  border: 2px solid red;
+}
+
+.authentication__style-text-error {
+  color: red;
+}
+/* ------------------Изменяемый бордер и текст элементов ввода------------------------------- */
